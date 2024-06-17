@@ -27,6 +27,7 @@ function preload() {
 function setup() {
   // Create the canvas
   createCanvas(1920, 1080);
+ 
   positionX = width/2-70;
   positionY = height/2-110;
 
@@ -42,6 +43,7 @@ function setup() {
   let heading = createElement('h1', 'PE class enrollment');
   heading.position(positionX, positionY+3);
   heading.style('font-family', 'CustomFont');
+  heading.style('font-size', '32px');
 
   // Create name and surname input field with label
   let nameLabel = createElement('h3', 'First name:');
@@ -98,6 +100,7 @@ function submitForm() {
 }
 
 function draw() { 
+   fullscreen(true);
   background(255);
   // Apply a tint to the background image
    tint(255,100); // White tint with 150 alpha value for transparency
@@ -110,9 +113,9 @@ function draw() {
 
   // Display the message if it's not empty
   if (message !== '') {
-    textSize(32);
+    textSize(30);
     textFont(customFont);
     fill('#000');
-    text(message, 20, height / 2);
+    text(message, width / 2, height / 2);
   }
 }
