@@ -9,6 +9,12 @@ let congratsSound, sadSound;
 let backgroundImg;
 let positionX = 20;
 let positionY = 0;
+let wheel;
+let loadingstage = false;
+let a = 0;
+let d = 0;
+let finalA = 0;
+let easing = 0.02;
 
 
 function preload() {
@@ -22,11 +28,14 @@ function preload() {
   sadSound = loadSound('sad.mp3');
   // Load the background image
   backgroundImg = loadImage('benches.jpg');
+  wheel = loadImage('wheel.png');
 }
 
 function setup() {
   // Create the canvas
   createCanvas(1920, 1080);
+  angleMode(DEGREES);
+  finalA = random(2000,2360);
  
   positionX = width/2-70;
   positionY = height/2-110;
@@ -79,14 +88,14 @@ function setup() {
 function submitForm() {
   // Get values from input and dropdown
   let name = nameInput.value();
-
+loadingstage = true;
   let lottery = random(1);
   // Simple condition: check if the name input is not empty
   if (lottery > 0.5) {
-    message = 'Congratulations!';
+    message = 'Congratulations! You are 1 of 100 people who managed to enroll!';
     congratsSound.play(); // Play the congratulations sound
   } else {
-    message = 'Sorry, try again next semester';
+    message = 'Womp womp! Sorry, try again next semester';
     sadSound.play();
   }
 
@@ -107,12 +116,27 @@ function draw() {
   // Set the background image
   image(backgroundImg, 0, 0, width, height);
  
+  // Reset tint to avoid applying to other elements
+  noTint();
 
+ 
+if (loadingstage){
+   d = finalA-a;
+  a += d*easing;
+  
+  push();
+  translate(width/2,height/2);
+  rotate(a);
+  image(wheel,-wheel.width / 2 , -wheel.height / 2);
+ pop();
+
+}
   // Draw the GIF at the mouse position
   image(cursorg, mouseX, mouseY, cursorWidth, cursorHeight);
 
+
   // Display the message if it's not empty
-  if (message !== '') {
+  if (message !== '' && d <1) {
     textSize(30);
     textFont(customFont);
     fill('#000');
