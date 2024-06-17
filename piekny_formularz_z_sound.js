@@ -15,7 +15,8 @@ let a = 0;
 let d = 0;
 let finalA = 0;
 let easing = 0.02;
-
+let lottery;
+let playsound = true;
 
 function preload() {
   // Load the cursor image
@@ -89,14 +90,14 @@ function submitForm() {
   // Get values from input and dropdown
   let name = nameInput.value();
 loadingstage = true;
-  let lottery = random(1);
+   lottery = random(1);
   // Simple condition: check if the name input is not empty
   if (lottery > 0.5) {
     message = 'Congratulations! You are 1 of 100 people who managed to enroll!';
-    congratsSound.play(); // Play the congratulations sound
+   
   } else {
     message = 'Womp womp! Sorry, try again next semester';
-    sadSound.play();
+    
   }
 
   // Clear the form elements
@@ -137,9 +138,18 @@ if (loadingstage){
 
   // Display the message if it's not empty
   if (message !== '' && d <1) {
+    
+    if (playsound){ 
+     if (lottery > 0.5) {
+       congratsSound.play(); // Play the congratulations sound
+  } else {
+    sadSound.play();
+     } 
+ playsound = false;  
+ }
     textSize(30);
     textFont(customFont);
     fill('#000');
-    text(message, width / 2, height / 2);
+    text(message, width / 4, height / 4);
   }
 }
