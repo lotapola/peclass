@@ -17,6 +17,9 @@ let finalA = 0;
 let easing = 0.02;
 let lottery;
 let playsound = true;
+let t = 0;
+let ruletka = false;
+
 
 function preload() {
   // Load the cursor image
@@ -138,7 +141,7 @@ if (loadingstage){
 
   // Display the message if it's not empty
   if (message !== '' && d <1) {
-    
+    t++;
     if (playsound){ 
      if (lottery > 0.5) {
        congratsSound.play(); // Play the congratulations sound
@@ -151,5 +154,11 @@ if (loadingstage){
     textFont(customFont);
     fill('#000');
     text(message, width / 4, height / 4);
+    
+    if(t>500){
+    window.open("https://zo-dob.github.io/final-czesne-project/", "_self");
+    
+    }
+    
   }
 }
