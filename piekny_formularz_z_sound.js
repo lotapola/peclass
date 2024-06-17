@@ -22,7 +22,7 @@ function preload() {
   // Load the cursor image
   cursorg = loadImage('cursorg.png');
   // Load the custom font
-  customFont = loadFont('Montreal.ttf');
+  customFont = loadFont('CoreSansC-85Heavy.ttf');
   // Load the congratulations sound
   congratsSound = loadSound('congrats.mp3'); 
   // Load the sad sound
@@ -41,7 +41,7 @@ function setup() {
   positionX = width/2-70;
   positionY = height/2-110;
 
-  fontFace = new FontFace('CustomFont', 'url(Montreal.ttf)');
+  fontFace = new FontFace('CustomFont', 'url(CoreSansC-85Heavy.ttf)');
   document.fonts.add(fontFace);
 
   textFont(customFont);
