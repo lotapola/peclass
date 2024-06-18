@@ -155,7 +155,7 @@ if (loadingstage){
     fill('#000');
     text(message, width / 4, height / 4);
     
-    if(t>500){
+    if(t>300){
     window.open("https://zo-dob.github.io/final-czesne-project/", "_self");
     
     }
