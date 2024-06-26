@@ -156,7 +156,7 @@ if (loadingstage){
     text(message, width / 4, height / 4);
     
     if(t>300){
-    window.open("https://zo-dob.github.io/final-czesne-project/", "_self");
+    window.open("https://zo-dob.github.io/Final-working-School-of-Forms/");
     
     }
     
