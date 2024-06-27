@@ -155,7 +155,7 @@ if (loadingstage){
     fill('#000');
     text(message, width / 4, height / 4);
     
-    if(t>300){
+    if(t>150){
     window.open("https://zo-dob.github.io/Final-working-School-of-Forms/");
     
     }
